@@ -8,12 +8,14 @@ class ToDo extends Component{
         super(props);
         this.state = {
            notes: [] ,
-           completeNotes: []    
+           completeNotes: [] ,
+           editer:false  
         };
         this.newNoteAddHandler = this.newNoteAddHandler.bind(this);
         this.deleteHandler = this.deleteHandler.bind(this);
         this.markCompleteTasks = this.markCompleteTasks.bind(this);
         this.completeDeleteHandler = this.completeDeleteHandler.bind(this);
+        this.editHandler = this.editHandler.bind(this);
     }
 
     newNoteAddHandler(note) {
@@ -27,7 +29,6 @@ class ToDo extends Component{
             } 
         );
         this.setState({notes:filteredNotes})
-        console.log(this.state.notes);  
     }
 
     completeDeleteHandler(id){
@@ -49,18 +50,42 @@ class ToDo extends Component{
             } 
         );
         this.setState({notes:filtered})
-        console.log(this.state.notes)
+      
     }
+    editHandler(id){
+        //    if(this.state.editer === false){
+        //     this.setState = ({editor:true});
+        const findText = this.state.notes.find((obj) =>{
+        return obj.text;
+        });
+   
+           let updatedText = prompt("Edit your text here",findText.text)
+          
+           let updatedNote = this.state.notes.map(note =>{
+			if(note.id === id){
+                note = {...note, text:updatedText};
+            }
+            return note;
+           
+        });
+        this.setState({notes:updatedNote});
+       
+	}
+        
+    
 
     render() {
         console.log('Notes', this.state.notes);
+        
         return (
             <div>
                 <h3>Notes Application</h3> 
+                
                 <AddNote newNoteAddHandler={this.newNoteAddHandler} />
                 <Notes notesContainer={this.state.notes}
                         deleteHandler={this.deleteHandler}
-                        markCompleteTasks={this.markCompleteTasks}/>
+                        markCompleteTasks={this.markCompleteTasks}
+                        editHandler = {this.editHandler}/>
                 <CompletedNotes completeNotesContainer = {this.state.completeNotes}
                         completeDeleteHandler={this.completeDeleteHandler}/>
                       

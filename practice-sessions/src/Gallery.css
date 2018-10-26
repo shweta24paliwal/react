@@ -1,0 +1,73 @@
+/* Global styles */
+body{
+    box-sizing: border-box;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0;
+}
+/* Header and footer */
+header h1{
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background:#9C27B0;
+    text-align: center;
+    font-size: 22px;
+}
+header a{
+    font-size: 110%;
+    color: white;
+    text-decoration: none;
+    width: 22%;
+    display: inline-block;
+    padding: 10px;
+    
+}
+header a:hover{
+    color: lawngreen;
+}
+.largeImageDiv{
+    margin-top: 10px;
+   text-align: center;
+}
+.smallImagesDiv{
+    margin: 10px 20px;
+    float: left;
+}
+.smallImagesDiv:hover{
+    transform: scale(0.9);
+    cursor: pointer;
+}
+#women{
+    position: relative;
+}
+.nextBtn{
+    position: absolute;
+    right:20%;
+    bottom:50%;
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    outline: none;
+    cursor: pointer;
+}
+.prvBtn{
+    position: absolute;
+    left:18%;
+    bottom:50%;
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #4CAF50;
+    outline: none;
+    cursor: pointer;
+}
+
+.selected-img{
+    border-bottom:4px solid #795548;
+}
+

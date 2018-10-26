@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import "./index.css";
+import "./calculator.css";
 
 const numArray = [1,2,3,4,5,6,7,8,9,0];
 const operatorArray = [
@@ -22,6 +22,10 @@ const operatorArray = [
     {
         name:'%',
         op:'%'
+    },
+    {
+        name:'.',
+        op:"."
     }
 ]
 
@@ -63,17 +67,17 @@ class Calculator extends Component{
     }
 
     answer(){
-            debugger;
-        const value = this.state.calciScreen;
-        const ansValue = eval(value);
-        this.setState({calciScreen :ansValue,
+        try{
+            const value = this.state.calciScreen;
+            const ansValue = eval(value);
+            this.setState({calciScreen :ansValue,
                         answerShown:true}) 
-       
-            // }
-            // catch(err){
-            //     console.log(err);
-            //     alert("Complete the query")
-}
+            }
+        catch(err){
+                console.log(err);
+                alert("Complete the query")
+        }
+    }
 
     clear(){
         this.setState({calciScreen:'',
@@ -85,28 +89,30 @@ class Calculator extends Component{
     render(){
         const buttonHandler = numArray.map((num) =>{
             return(
-                <button onClick={() => this.clickHandler(num.toString(),"number")}>{num}</button>
+                <button className='btns' onClick={() => this.clickHandler(num.toString(),"number")}>{num}</button>
                 )
             }
         )
         const operator = operatorArray.map((op) =>{
             return(
-                <button onClick={() => this.operatorHandler(op.op)}>{op.name}</button>
+                <button className='opBtns' onClick={() => this.operatorHandler(op.op)}>{op.name}</button>
             )
         })
         return(
-            <div>
-                <h1>Calculator</h1>
-                <input  value = {this.state.calciScreen}/><br/>
-              
-               
-               
-                {buttonHandler}
-                <div>
+            <div className="container border">
+                <div className='first-half'>
+                    <h1>Calculator</h1>
+                    <input readonly placeholder="0" value = {this.state.calciScreen}/><br/>
+                </div> 
+                <div className='second-half'>
+                    {buttonHandler}
+                    <button className='btns' onClick={() => this.answer()}>=</button>
+                    <button className='btns' onClick={() => this.clear()}>Clear</button>
+                </div>   
+                <div className='operator-style'>
                     {operator}
-                    <button onClick={() => this.answer()}>=</button>
-                    <button onClick={() => this.clear()}>Clear</button>
                 </div>
+                <div style={{clear: 'both'}}></div>
             </div>
         );
 

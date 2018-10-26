@@ -8,6 +8,10 @@ class Notes extends Component{
     markCompleteClickHandler(id){
         this.props.markCompleteTasks(id);
     }
+    promptHandler(id){
+       this.props.editHandler(id);
+       
+    }
    
      render() {
        let array = this.props.notesContainer.map((text,id) =>{
@@ -16,7 +20,7 @@ class Notes extends Component{
                     
                     {text.text}
                     <button className='closeBtn' onClick={() => this.deleteBtnClickHandler(text.id)}>close</button><br/><br/>
-                    <button>Edit</button>
+                    <button onClick={() => this.promptHandler(text.id)}> Edit</button>
                     <button onClick={() => this.markCompleteClickHandler(text.id)}>Mark complete</button>
                 </p>
             )

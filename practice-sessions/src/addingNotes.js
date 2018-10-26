@@ -5,8 +5,7 @@ class AddNote extends Component{
     constructor(props){
         super(props);
         this.state = {
-           
-            text: ""
+           text: ""
         };
     }
 
@@ -25,6 +24,7 @@ class AddNote extends Component{
         this.props.newNoteAddHandler(note);   
         idValue = idValue + 1;
         this.setState({text:''}) 
+       
     }
     render(){
         return(

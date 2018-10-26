@@ -19,7 +19,7 @@ class CompletedNotes extends Component{
         return(
             <div>
                <h5>Completed Tasks :</h5>
-               <div className='selected float-right'>
+               <div className='selected'>
                    {completedArray}
                 </div>
             </div>
