@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import AddNote from "./addingNotes.js";
 import Notes from "./Notes.js";
 import CompletedNotes from './CompletedNotes.js';
-
+import './todo.css';
 class ToDo extends Component{
     constructor(props){
         super(props);
@@ -79,15 +79,30 @@ class ToDo extends Component{
         
         return (
             <div>
-                <h3>Notes Application</h3> 
+            
+                <h3 className='title'>To Do Application</h3>
+                <h5 className="text-align-center">A list about the things to do</h5> 
+                <div className="notes-container">
+                    <div className="col-50">
+                        <AddNote newNoteAddHandler={this.newNoteAddHandler} />
+                    </div>
+                    <div className="col-50">
+                        <Notes
+                            notesContainer={this.state.notes}
+                            deleteHandler={this.deleteHandler}
+                            markCompleteTasks={this.markCompleteTasks}
+                            editHandler = {this.editHandler}
+                        />
+                    </div>
+                    <div className="col-50">
+                        <CompletedNotes 
+                            completeNotesContainer = {this.state.completeNotes}
+                            completeDeleteHandler={this.completeDeleteHandler}
+                        />
+                    </div>
+                    
+                </div>
                 
-                <AddNote newNoteAddHandler={this.newNoteAddHandler} />
-                <Notes notesContainer={this.state.notes}
-                        deleteHandler={this.deleteHandler}
-                        markCompleteTasks={this.markCompleteTasks}
-                        editHandler = {this.editHandler}/>
-                <CompletedNotes completeNotesContainer = {this.state.completeNotes}
-                        completeDeleteHandler={this.completeDeleteHandler}/>
                       
                 
             </div>    

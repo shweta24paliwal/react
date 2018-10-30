@@ -4,31 +4,3 @@ body {
   font-family: sans-serif;
 }
 
-.selected{
-  border: 2px solid black;
-  /* width:500px;
-  height: 200px; */
-  overflow:auto;
-}
-.ansInput{
-  width: 60px;
-}
-.text{
-  border: 2px solid black;
-  height: 80px;
-  width: 500px;
-  overflow:auto;
-}
-
-.paraStyle{
-  border-bottom: 1px solid black;
-  overflow:auto;
-}
-
-.closeBtn{
-  float: right;
-}
-float-right{
-  float: right;
-  clear:both;
-}

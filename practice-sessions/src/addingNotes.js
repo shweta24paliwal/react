@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import "./index.css";
+import "./todo.css";
 let idValue = 1;
 class AddNote extends Component{
     constructor(props){
@@ -28,10 +28,14 @@ class AddNote extends Component{
     }
     render(){
         return(
-            <div>
-                <textarea className='text' onChange={(e) => this.inputChange(e)} value={this.state.text}></textarea><br/>
-                <button onClick={() => this.addBtnClickHandler()}>Add</button>
+            <div className="add-note-container">
+                <textarea className="text-input"
+                          placeholder="Enter your note here" 
+                          onChange={(e) => this.inputChange(e)} value={this.state.text}>
+                </textarea><br/>
+                <button className="add-btn" onClick={() => this.addBtnClickHandler()}>Add Note</button>
             </div>
+
         )
     }
 }

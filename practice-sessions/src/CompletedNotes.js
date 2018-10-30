@@ -7,19 +7,17 @@ class CompletedNotes extends Component{
     render(){
         let completedArray = this.props.completeNotesContainer.map((text,idtype) =>{
             return(
-                <p className = 'paraStyle' key={idtype}>
-                    
+                <p className='complete-note' key={idtype}>
                     {text.text}
-                    <button className='closeBtn' onClick={() => this.completeDeleteClickHandler(text.id)}>close</button><br/><br/>
-                    
+                    <button className='close-btn' onClick={() => this.completeDeleteClickHandler(text.id)}>X</button><br/><br/>
                 </p>
             )
         }
     )
         return(
             <div>
-               <h5>Completed Tasks :</h5>
-               <div className='selected'>
+               <h5 className="text-align-center title">Done:</h5>
+               <div className='todo-note'>
                    {completedArray}
                 </div>
             </div>

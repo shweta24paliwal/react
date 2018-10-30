@@ -16,20 +16,19 @@ class Notes extends Component{
      render() {
        let array = this.props.notesContainer.map((text,id) =>{
             return(
-                <p className = 'paraStyle' key={id}>
-                    
+                <p className='note' key={id}>
                     {text.text}
-                    <button className='closeBtn' onClick={() => this.deleteBtnClickHandler(text.id)}>close</button><br/><br/>
-                    <button onClick={() => this.promptHandler(text.id)}> Edit</button>
-                    <button onClick={() => this.markCompleteClickHandler(text.id)}>Mark complete</button>
+                    <button className='close-btn' onClick={() => this.deleteBtnClickHandler(text.id)}>X</button><br/><br/><br/>
+                    <button className='edit-btn' onClick={() => this.promptHandler(text.id)}>Edit</button>
+                    <button className='complete-btn' onClick={() => this.markCompleteClickHandler(text.id)}>Mark done</button>
                 </p>
             )
         }
     )
         return (
             <div>
-                <h5>To Do :</h5>
-                <div className='selected'>
+                <h4 className="text-align-center title">Get this done:</h4>
+                <div className='todo-note'>
                    {array}
                 </div>
             </div>
